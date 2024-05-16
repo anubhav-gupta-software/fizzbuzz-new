@@ -1,3 +1,4 @@
+//Function to get data from API calls
 function get(url) {
     return new Promise((resolve, reject) => {
       const http = new XMLHttpRequest();
@@ -8,7 +9,7 @@ function get(url) {
       http.send();
     });
   }
-
+//Function to update/create data through API 
   function post(url, data) {
     data = JSON.stringify(data);
     return new Promise((resolve, reject) => {
@@ -22,22 +23,21 @@ function get(url) {
     });
   }
   
- 
+//Function to handle get and post requests
 function get_api_response(url) {
     get(url).then(function(response){
          if (response.status == 200) {
             usernameApi = response.data.id;
             score = response.data.score;
-            console.log("The Username \"" + usernameApi + "\" is present.")
-            console.log("The score is " + score)
+            // console.log("The Username \"" + usernameApi + "\" is present.")
+            // console.log("The score is " + score)
             sessionStorage.setItem('username_login', usernameApi)
-            sessionStorage.setItem('score_login', score)
-            window.location.assign('home.html');
+            sessionStorage.setItem('score_login', score) //session storage for data access
+            window.location.assign('home.html'); 
           }
         else {
-            console.log("The Required Username Not Found");
-            console.log("Creating Username With score 0");
-            post(url, {score: 0}).then(function(){
+            // console.log("The Required Username Not Found, Creating User");
+            post(url, {score: 0}).then(function(){//creation of user with score 0
               get_api_response(url)
             });
             
@@ -48,7 +48,7 @@ function get_api_response(url) {
     })
 }
 
-document.getElementById("login_button").addEventListener("click", gotClicked);  
+document.getElementById("login_button").addEventListener("click", gotClicked);//Login Button Click Event Listener
 function gotClicked() {
     let usernameInput = document.getElementById("username").value;
     document.getElementById("invalid").textContent = "";
@@ -56,8 +56,8 @@ function gotClicked() {
     if (usernameInput == "") {
         document.getElementById("invalid").textContent = "No Username Entered. Please Try Again!";
     }
-    else {
-        let apiUrl = "http://localhost:8000/"
+    else {//only runs when the username is non-null
+        let apiUrl = "http://localhost:8000/" //server address
         let requestUrl = apiUrl + usernameInput;
         get_api_response(requestUrl)
         
