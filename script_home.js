@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(username)
     console.log(score)
     document.getElementById("username_home").textContent=username;
-    document.getElementById("score_home").textContent=score;
+    document.getElementById("score_home").textContent=fizzbuzz_checker(score);
 
     document.getElementById("increment").addEventListener("click", gotClicked);  
     
