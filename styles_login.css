@@ -5,15 +5,26 @@ main {
     text-align: center;
     font-size: 20px;
 }
-#increment {
+button {
     background-color:#ADD8E6;
     border-radius: 10px;
     font-size: 20px;
 }
-#increment:hover {
+button:hover {
     background-color: #4ac3eb;
 }
 #score_home {
     background-color: #bebebe;
     
+}
+#username {
+    font-size: 20px;
+}
+
+#invalid {
+    color:  #ff0000
+}
+#score_home {
+    font-size: 30px;
+    color:#3b60e7
 }
