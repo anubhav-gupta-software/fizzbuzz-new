@@ -5,5 +5,6 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log(score)
     document.getElementById("username_home").textContent=username;
     document.getElementById("score_home").textContent=score;
-
+    
+    
 });

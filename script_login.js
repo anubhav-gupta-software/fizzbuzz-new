@@ -32,12 +32,15 @@ function get_api_response(url) {
             console.log("The score is " + score)
             sessionStorage.setItem('username_login', usernameApi)
             sessionStorage.setItem('score_login', score)
-    }
+            window.location.assign('home.html');
+          }
         else {
             console.log("The Required Username Not Found");
             console.log("Creating Username With score 0");
-            post(url, {score: 0});
-            get_api_response(url)
+            post(url, {score: 0}).then(function(){
+              get_api_response(url)
+            });
+            
         }
       
           
@@ -57,7 +60,7 @@ function gotClicked() {
         let apiUrl = "http://localhost:8000/"
         let requestUrl = apiUrl + usernameInput;
         get_api_response(requestUrl)
-        window.location.assign('home.html');
+        
         
     }
 }
