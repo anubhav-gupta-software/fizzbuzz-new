@@ -42,6 +42,10 @@ function get_api_response(url) {
     })
 }
 
+function basic_load_home() {
+  
+}
+
 document.getElementById("login_button").addEventListener("click", gotClicked);  
 function gotClicked() {
     let usernameInput = document.getElementById("username").value;
@@ -55,5 +59,6 @@ function gotClicked() {
         let requestUrl = apiUrl + usernameInput;
         get_api_response(requestUrl)
         window.location.assign('home.html');
+        basic_load_home()
     }
 }
