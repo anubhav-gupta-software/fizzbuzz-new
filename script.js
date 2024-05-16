@@ -38,7 +38,7 @@ function get_api_response(url) {
             console.log("Creating Username With Score Zero");
             post(url, {score: 0});
         }
-
+        
     })
 }
 
