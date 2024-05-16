@@ -8,7 +8,21 @@ function get(url) {
       http.send();
     });
   }
+
+  function post(url, data) {
+    data = JSON.stringify(data);
+    return new Promise((resolve, reject) => {
+      const http = new XMLHttpRequest();
+      http.onload = function() {
+        resolve({ status: http.status, data: JSON.parse(http.response) });
+      };
+      http.open("POST", url);
+      http.setRequestHeader("Content-Type", "application/json");
+      http.send(data);
+    });
+  }
   
+
 function get_api_response(url) {
     get(url).then(function(response){
         let usernameApi = "";
@@ -16,11 +30,13 @@ function get_api_response(url) {
         if (response.status == 200) {
             usernameApi = response.data.id;
             score = response.data.score;
+            console.log("The Username \"" + usernameApi + "\" is present.")
+            console.log("The score is " + score)
     }
         else {
             console.log("The Required Username Not Found");
             console.log("Creating Username With Score Zero");
-            //post(url, {score: 0});
+            post(url, {score: 0});
         }
 
     })
