@@ -1,3 +1,4 @@
+/* Styling for both the html pages */
 header {
     text-align: center;
 }
@@ -15,8 +16,8 @@ button:hover {
 }
 #score_home {
     background-color: #bebebe;
-    
 }
+
 #username {
     font-size: 20px;
 }
