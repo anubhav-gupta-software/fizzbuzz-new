@@ -63,7 +63,7 @@ function gotClicked() {
       document.getElementById("invalid").textContent = "No Username Entered. Please Try Again!";
   } else {
       //only runs when the username is non-null
-      let apiUrl = "http://localhost:8000/" //server address
+      let apiUrl = "http://basic-web.dev.avc.web.usf.edu/" //server address
       let requestUrl = apiUrl + usernameInput;
       get_api_response(requestUrl)
 

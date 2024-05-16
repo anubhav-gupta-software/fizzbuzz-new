@@ -34,7 +34,7 @@ function fizzbuzz_checker(score) {
 }
 
 document.addEventListener("DOMContentLoaded", function() { //runs after HTML is parsed
-    let apiUrl = "http://localhost:8000/"
+    let apiUrl = "http://basic-web.dev.avc.web.usf.edu/"
     let username = sessionStorage.getItem("username_login"); //accessing session storage variables
     let requestUrl = apiUrl + username;
     let score = parseInt(sessionStorage.getItem("score_login"))
