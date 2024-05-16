@@ -54,5 +54,6 @@ function gotClicked() {
         let apiUrl = "http://localhost:8000/"
         let requestUrl = apiUrl + usernameInput;
         get_api_response(requestUrl)
+        window.location.assign('home.html');
     }
 }
