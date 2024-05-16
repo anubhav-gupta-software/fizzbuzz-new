@@ -35,15 +35,11 @@ function get_api_response(url) {
     }
         else {
             console.log("The Required Username Not Found");
-            console.log("Creating Username With Score Zero");
+            console.log("Creating Username With score 0");
             post(url, {score: 0});
         }
         
     })
-}
-
-function basic_load_home() {
-  
 }
 
 document.getElementById("login_button").addEventListener("click", gotClicked);  
@@ -59,6 +55,6 @@ function gotClicked() {
         let requestUrl = apiUrl + usernameInput;
         get_api_response(requestUrl)
         window.location.assign('home.html');
-        basic_load_home()
+        
     }
 }
