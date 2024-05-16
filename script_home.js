@@ -19,6 +19,9 @@ function post(url, data) {
 
 //Implementation of FizzBuzz checker
 function fizzbuzz_checker(score) {
+    if (score == 0) {
+        return score;
+    }
     if (score % 3 == 0 && score % 5 == 0) {
         return ("FizzBuzz")
     } else if (score % 3 == 0) {
