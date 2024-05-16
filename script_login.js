@@ -22,23 +22,26 @@ function get(url) {
     });
   }
   
-
+ 
 function get_api_response(url) {
     get(url).then(function(response){
-        let usernameApi = "";
-        let score = -1;
-        if (response.status == 200) {
+         if (response.status == 200) {
             usernameApi = response.data.id;
             score = response.data.score;
             console.log("The Username \"" + usernameApi + "\" is present.")
             console.log("The score is " + score)
+            sessionStorage.setItem('username_login', usernameApi)
+            sessionStorage.setItem('score_login', score)
     }
         else {
             console.log("The Required Username Not Found");
             console.log("Creating Username With score 0");
             post(url, {score: 0});
+            get_api_response(url)
         }
-        
+      
+          
+
     })
 }
 
