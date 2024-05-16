@@ -11,6 +11,20 @@ function post(url, data) {
     });
   }
 
+function fizzbuzz_checker(score) {
+    if (score % 3 == 0 && score % 5 == 0) {
+        return ("FizzBuzz")
+    }
+    else if (score % 3 == 0){
+        return ("Fizz")
+    }
+    else if (score % 5 == 0){
+        return ("Buzz")
+    }
+    else {
+        return score;
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function(){
     let apiUrl = "http://localhost:8000/"
@@ -28,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){
     function gotClicked(){
         score+=1;
         post(requestUrl, {score:score}).then(function(){
-            document.getElementById("score_home").textContent=score;
+            document.getElementById("score_home").textContent=fizzbuzz_checker(score);
         });
         
     }
