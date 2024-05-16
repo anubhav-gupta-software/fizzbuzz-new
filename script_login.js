@@ -41,18 +41,15 @@ function get_api_response(url) {
           sessionStorage.setItem('username_login', usernameApi)
           sessionStorage.setItem('score_login', score) //session storage for data access
           window.location.assign('home.html');
-      } else {
+      } 
+      else {
           // console.log("The Required Username Not Found, Creating User");
           post(url, {
               score: 0
           }).then(function() { //creation of user with score 0
               get_api_response(url)
           });
-
       }
-
-
-
   })
 }
 
